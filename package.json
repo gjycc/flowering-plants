@@ -4,7 +4,8 @@
   "description": "A simple web application that provides information about various flowering plants.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "repository": {
     "type": "git",
