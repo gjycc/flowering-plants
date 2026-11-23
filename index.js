@@ -1,10 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 
+import plantsRouter from './src/routes/plantsRouter.js';
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/plants', plantsRouter);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to the Flowering Plants API!' });
