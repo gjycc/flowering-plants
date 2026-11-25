@@ -1,19 +1,21 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 
-import plantsRouter from './src/routes/plantsRouter.js';
+import plantsRouter from "./src/routes/plantsRouter.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api/plants', plantsRouter);
+app.use("/api/plants", plantsRouter);
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the Flowering Plants API!' });
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the Flowering Plants API!" });
 });
+app.use("/api/plants", plantsRouter);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`Server en http://localhost:${PORT}`);
 });

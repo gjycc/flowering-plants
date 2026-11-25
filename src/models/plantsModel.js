@@ -15,8 +15,8 @@ export const getAllPlants = async () => {
 };
 
 export const getPlantById = async (id) => {
-  const plantDoc = doc(db, "plants", id);
-  const snapshot = await getDoc(plantDoc);
+  const reference = doc(db, "plants", id);
+  const snapshot = await getDoc(reference);
 
   if (!snapshot.exists()) {
     return null;
@@ -39,12 +39,12 @@ export const deletePlant = async (id) => {
   const snapshot = await getDoc(reference);
 
   if (!snapshot.exists()) {
-    throw new Error("Plant not found");
+   return null;
   }
   await deleteDoc(reference);
 
   return { ...snapshot.data(), id: snapshot.id 
-    
+
   };
 };
 

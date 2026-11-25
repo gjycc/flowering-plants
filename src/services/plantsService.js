@@ -8,8 +8,8 @@ export const findPlantById = async (id) => {
   return await getPlantById(id);
 };
 
-export const addPlant = async (plantData) => {
-  return await createPlant(plantData);
+export const addPlant = async (data) => {
+  return await createPlant(data);
 };
 
 export const removePlant = async (id) => {
