@@ -32,7 +32,9 @@ export const postPlant = async (req, res) => {
 
     if (
         typeof especie !== "string" ||
-        typeof descripcion !== "string" || typeof precio !== "number" || precio < 0 ) {
+        typeof descripcion !== "string" ||
+        typeof precio !== "number" || 
+        precio < 0 ) {
       return res.status(400).json({ error: "Faltan campos obligatorios o tienen un formato incorrecto" });
     }
     const newPlant = await addPlant({ especie, descripcion, precio });
